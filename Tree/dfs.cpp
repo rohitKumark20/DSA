@@ -27,7 +27,7 @@ void PreOrder(TreeNode* root){
 }
 
 //PreOrder Iterative
-void PreOrder(TreeNode* root){
+void PreOrderIter(TreeNode* root){
     stack<TreeNode*> st;
     st.push(root);
 
@@ -43,6 +43,34 @@ void PreOrder(TreeNode* root){
 
         if(it->left != nullptr){
             st.push(it->left);
+        }
+    }
+}
+
+//Inorder
+void inorder(TreeNode* root){
+    if(root == nullptr) return;
+
+    inorder(root->left);
+    cout<<root->val<<" ";
+    inorder(root->right);
+}
+
+//Inorder iterative;
+void inorderIter(TreeNode* root){
+    stack<TreeNode*> st;
+    TreeNode* curr = root;
+
+    while(true){
+        if(curr!=nullptr){
+            st.push(curr);
+            curr = curr->left;
+        }else{
+            if(st.empty()) break;
+            auto it = st.top();
+            st.pop();
+            cout<<it->val<<" ";
+            curr = it->right;
         }
     }
 }
