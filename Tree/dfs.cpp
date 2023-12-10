@@ -1,6 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+class TreeNode{
+    public:
+    
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+
+    TreeNode(int data){
+        this->val = data;
+        this->left = nullptr;
+        this->right = nullptr;
+    }
+};
+
 //PreOrder
 void PreOrder(TreeNode* root){
     if(root == NULL){
